@@ -158,7 +158,7 @@ void CamLaserCalib::publishCloud()
     pcl::PCLPointCloud2 cloud_pc2;
     if(!onlyDrawPointsColor_)
     {
-        cout<<"just test the programm onlyDrawPointsColor_ "<<endl;
+        //cout<<"just test the programm onlyDrawPointsColor_ "<<endl;
         //punlish estimated plane cloud
         pcl::toPCLPointCloud2(*cloudPlane_,cloud_pc2);
         pcl_conversions::fromPCL(cloud_pc2,cloud_s_p);
