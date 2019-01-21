@@ -4,7 +4,10 @@
  Authentic authors: Nico
 
 # overview  
-Calibration of the LiDAR sensor with RGB camera finds its usage in many application fields from enhancing image classification to the environment perception and mapping. This package is used to calculate the translation and rotation matrix between camera and laser coordinate, especially for Hesai Pandar P40. There are two different important points between Hesai LiDAR and Velodyne: 
+Calibration of the LiDAR sensor with RGB camera finds its usage in many application fields from enhancing image classification to the environment perception and mapping. This package is used to calculate the translation and rotation matrix between camera and laser coordinate, especially for Hesai Pandar P40. 
+
+There are two different important points between Hesai LiDAR and Velodyne: 
+
 1)Timestamp. Because Pandar_P40 doesn't apply the Linux UTC time, you should add two sentences in /HesaiLidar-ros/src/main.cc
 ```
 void lidarCallback(boost::shared_ptr<PPointCloud> cld, double timestamp)
@@ -16,10 +19,13 @@ void lidarCallback(boost::shared_ptr<PPointCloud> cld, double timestamp)
 }
 ```
 In Panda40 User's Manual, it says "If the user wants to get absolute time, GPS module is required".
+
 2)Different coordinate. Pay more attention on cv::solvePnPRansac.
+
 I use the QR code board as the marker, detect the center point pair of the QR code as 2D point in image and 3D points in laser coordinates. Then use the PnP method to get the relation between the two coordinates. Actualy you can use any other marker. It will also give you good result.
+
 Image shows the image and laser fuse result:
-![](https://github.com/aihanb/camera-laser-calibration/raw/master/screenshots/1.png)
+![](https://github.com/aihanb/cam_laser_calib/screenshots/1.png)
 
 # prerequisites
 
