@@ -35,8 +35,8 @@ void CamLaserCalib::readParameters()
     nodehandle_.param("strSub_img",    strSub_img_,     string("/camera/image_color"));
     //nodehandle_.param("strSub_img",    strSub_img_,     string("/usb_cam/image_raw"));
     /************** change the value of onlyDrawPointsColor_ & distance_threshold_ *******************/
-    nodehandle_.param("onlyDrawPointsColor",    onlyDrawPointsColor_,     true);
-    //nodehandle_.param("onlyDrawPointsColor",    onlyDrawPointsColor_,     false);
+    //nodehandle_.param("onlyDrawPointsColor",    onlyDrawPointsColor_,     true);
+    nodehandle_.param("onlyDrawPointsColor",    onlyDrawPointsColor_,     false);
     nodehandle_.param("DistanceThreshold",      distance_threshold_,      double(0.05));//ransac DistanceThreshold
 }
 void CamLaserCalib::cfgCallback(const Parameter cfg)
