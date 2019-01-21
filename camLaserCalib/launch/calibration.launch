@@ -1,0 +1,9 @@
+<!-- -->
+<launch>
+	<node pkg="cam_laser_calib" type="cam_laser_calib_node" name="cam_laser_calib" args="/home/drl/cam_laser_calib/src/solvepnp/imageCloudPoints.txt /home/drl/cam_laser_calib/src/solvepnp/param/calib.yml" output="screen">
+			<param name="strSub_pc2" type="string" value="/pandar_points"/>
+			<param name="strSub_img" type="string" value="/camera/image_color"/>
+			<param name="onlyDrawPointsColor" type="bool" value="true"/>
+		    <param name="DistanceThreshold" type="double" value="0.05"/>
+	</node>
+</launch>
