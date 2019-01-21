@@ -25,7 +25,7 @@ In Panda40 User's Manual, it says "If the user wants to get absolute time, GPS m
 I use the QR code board as the marker, detect the center point pair of the QR code as 2D point in image and 3D points in laser coordinates. Then use the PnP method to get the relation between the two coordinates. Actualy you can use any other marker. It will also give you good result.
 
 Image shows the image and laser fuse result:
-![](https://github.com/aihanb/cam_laser_calib/screenshots/1.png)
+![](https://github.com/aihanb/cam_laser_calib/raw/master/screenshots/1.png)
 
 # prerequisites
 
@@ -40,7 +40,7 @@ Here we use the QR code as the marker. The size of the marker is 80*80 cm. Other
 
 Marker
 
-<img src="https://github.com/aihanb/camera-laser-calibration/raw/master/screenshots/2.png" width="50%" height="50%">
+<img src="https://github.com/aihanb/cam_laser_calib/raw/master/screenshots/2.png" width="50%" height="50%">
 
 # Test data
 
@@ -106,19 +106,19 @@ $rosrun rqt_reconfigure rqt_reconfigure
 ```
 rqt_reconfigure
 
-![rqt_reconfigure](https://github.com/aihanb/camera-laser-calibration/raw/master/screenshots/3.png)
+![rqt_reconfigure](https://github.com/aihanb/cam_laser_calib/raw/master/screenshots/3.png)
 
 Before cut the point cloud
 
-<img src="https://github.com/aihanb/camera-laser-calibration/raw/master/screenshots/4.png" width="50%" height="50%">
+<img src="https://github.com/aihanb/cam_laser_calib/raw/master/screenshots/4.png" width="50%" height="50%">
 
 After cut the point cloud
 
-<img src="https://github.com/aihanb/camera-laser-calibration/raw/master/screenshots/5.png" width="50%" height="50%">
+<img src="https://github.com/aihanb/cam_laser_calib/raw/master/screenshots/5.png" width="50%" height="50%">
 
 Estimated plane
 
-<img src="https://github.com/aihanb/camera-laser-calibration/raw/master/screenshots/6.png" width="50%" height="50%">
+<img src="https://github.com/aihanb/cam_laser_calib/raw/master/screenshots/6.png" width="50%" height="50%">
 
 After adjust the parameter, write it in the cam_laser_calib/src/camLaserCalib/cfg/cam_laser_calib.cfg file and shutdown the program. Recompile the package.
 ```
