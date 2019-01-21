@@ -1,8 +1,9 @@
 # [Hesai]camera-laser-calibration 
  Editor: aihanb
+ 
  Authentic authors: Nico
 
-#overview  
+# overview  
 Calibration of the LiDAR sensor with RGB camera finds its usage in many application fields from enhancing image classification to the environment perception and mapping. This package is used to calculate the translation and rotation matrix between camera and laser coordinate, especially for Hesai Pandar P40. There are two different important points between Hesai LiDAR and Velodyne: 
 1)Timestamp. Because Pandar_P40 doesn't apply the Linux UTC time, you should add two sentences in /HesaiLidar-ros/src/main.cc
 ```
@@ -20,14 +21,14 @@ I use the QR code board as the marker, detect the center point pair of the QR co
 Image shows the image and laser fuse result:
 ![](https://github.com/aihanb/camera-laser-calibration/raw/master/screenshots/1.png)
 
-#prerequisites
+# prerequisites
 
-##1 ROS
+## 1 ROS
 
 We use [ros](http://wiki.ros.org/kinetic/Installation/Ubuntu) to get the image and laser message.
 (Devices in here: [Camera]Point Grey BFLY-U3-23S6; [LiDAR]Hesai_Pandar40/40P)
 
-##2 Marker
+## 2 Marker
 
 Here we use the QR code as the marker. The size of the marker is 80*80 cm. Other sizes will also fit.
 
@@ -35,7 +36,7 @@ Marker
 
 <img src="https://github.com/aihanb/camera-laser-calibration/raw/master/screenshots/2.png" width="50%" height="50%">
 
-#Test data
+# Test data
 
 You can download the test data in [here](https://pan.baidu.com/s/1fZiBqmOMXkmfprysrosVRg)(password: ppw0). This rosbag have two topic:
 image topic:/camera/image_color 
@@ -48,7 +49,7 @@ And follow the "Usage"step, you can test the package.
 
 #Usage 
 
-##1 camera calibtation 
+## 1 camera calibtation 
 
 If you use the test data, you can ignore this step.
 ```
@@ -56,7 +57,7 @@ $rosrun camera_calibration cameracalibrator.py --size 8x6 --square 0.058 image:=
 ```
 You shoude change the size/square/image/camera with your own parameters. Write the camera calibration result in the cam_laser_calib/src/solvepnp/param/calib.yml file. After this step, you can obtain the camera instrinsic matrix.
 
-##2 Get the points pair of QR code center
+## 2 Get the points pair of QR code center
 
 ### 2.1 build and run
 
@@ -88,7 +89,7 @@ Here we shoud notice the parameter in launch file, change the "onlyDrawPointsCol
 </launch>
 ```
 
-###2.2 Choose rectangle cut area of point cloud
+### 2.2 Choose rectangle cut area of point cloud
 
 We use rqt_reconfigure to dynamic config the rectangle cut area of point cloud.
 ```
@@ -116,14 +117,14 @@ $cd cam_laser_calib/
 $catkin_make 
 ```
 
-###2.3 Get the points pair of QR code center
+### 2.3 Get the points pair of QR code center
 
 ```
 $roslaunch  cam_laser_calib calibration.launch
 ```
 After this step, we write the point pairs of QR code center in laser coordinate and image coordinate to cam_laser_calib/src/solvepnp/imageCloudPoints.txt file.
 
-##3 Calculate the calibration matrix
+## 3 Calculate the calibration matrix
 
 We use solvePnP method in openCV to get the calibration matrix. 
 ```
@@ -135,7 +136,7 @@ $./solvepnp
 ```
 After this step, we can obtain the camera extrinsic matrix T. Please copy the T matrix in terminal to cam_laser_calib/src/solvepnp/param/calib.yml file. Replace the CameraExtrinsicMat.
 
-##4 Using calibration matrix to draw point cloud with image color
+## 4 Using calibration matrix to draw point cloud with image color
 
 At this step we could change the onlyDrawPointsColor parameter in "calibtation.launch" file to true. Got the color point cloud as the first figure.
 
