@@ -8,7 +8,7 @@ Calibration of the LiDAR sensor with RGB camera finds its usage in many applicat
 
 There are two different important points between Hesai LiDAR and Velodyne: 
 
-1)Timestamp. Because Pandar_P40 doesn't apply the Linux UTC time, you should add two sentences in /HesaiLidar-ros/src/main.cc
+1) Timestamp. Because Pandar_P40 doesn't apply the Linux UTC time, you should add two sentences in /HesaiLidar-ros/src/main.cc
 ```
 void lidarCallback(boost::shared_ptr<PPointCloud> cld, double timestamp)
 {
@@ -20,7 +20,7 @@ void lidarCallback(boost::shared_ptr<PPointCloud> cld, double timestamp)
 ```
 In Panda40 User's Manual, it says "If the user wants to get absolute time, GPS module is required".
 
-2)Different coordinate. Pay more attention on cv::solvePnPRansac.
+2) Different coordinate. Pay more attention on cv::solvePnPRansac.
 
 I use the QR code board as the marker, detect the center point pair of the QR code as 2D point in image and 3D points in laser coordinates. Then use the PnP method to get the relation between the two coordinates. Actualy you can use any other marker. It will also give you good result.
 
