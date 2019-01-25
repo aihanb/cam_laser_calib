@@ -32,7 +32,7 @@ Image shows the image and laser fuse result:
 ## 1 ROS
 
 We use [ros](http://wiki.ros.org/kinetic/Installation/Ubuntu) to get the image and laser message.
-(Devices in here: [Camera]Point Grey BFLY-U3-23S6; [LiDAR]Hesai_Pandar40/40P)
+(Devices in here: [Camera] Point Grey BFLY-U3-23S6; [LiDAR] Hesai_Pandar40/40P)
 
 ## 2 Marker
 
