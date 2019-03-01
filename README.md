@@ -74,7 +74,7 @@ You shoude change the size/square/image/camera with your own parameters. Write t
 Create a ros workspaces named cam_laser_calib.
 ``` 
 $cd cam_laser_calib/src
-$git clone http://github.com/aihanb/camera-laser-calibration.git
+$git clone https://github.com/aihanb/cam_laser_calib.git
 $cd ..
 $catkin_make
 $source ./devel/setup.bash
