@@ -21,7 +21,8 @@ Mat distCoeff;
 void estimatePose()
 {
     Mat rvec, tvec,inliers;
-    cv::solvePnPRansac( cloudPoints, imgPoints, camMat, cv::Mat(), rvec, tvec, false, 100, 1.0, 0.99, inliers );
+    cv::solvePnPRansac( cloudPoints, imgPoints, camMat, cv::Mat(), rvec, tvec, true, 1000, 1.0, 0.99, inliers );
+    //cv::solvePnPRansac( cloudPoints, imgPoints, camMat, cv::Mat(), rvec, tvec, false, 100, 1.0, 0.99, inliers );
     //cv::solvePnPRansac( cloudPoints, imgPoints, camMat, distCoeff, rvec, tvec, false, 100, 1.0, 0.99, inliers);
     Rodrigues(rvec, R);
     cv::Mat T(3, 4, R.type()); // T is 4x4
